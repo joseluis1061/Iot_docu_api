@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Layout from './Layout/Layout';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Alarmas from './pages/Alarmas';
+import Analisis from './pages/Analisis';
+import Sitios from './pages/Sitios';
+import AppContext from './context/AppContext';
+import { useContext } from 'react';
+import useApi from './hook/useApi';
 
 function App() {
+  const api = useApi();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={api}>    
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={ <Layout/> }>
+            <Route index element={ <Alarmas/> }/>
+            <Route path='/analisis' element={ <Analisis/> }/>
+            <Route path='/sitios' element={ <Sitios/> }/>
+          </Route>
+        </Routes>    
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 
