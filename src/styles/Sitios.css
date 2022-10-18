@@ -1,0 +1,44 @@
+.tabla-container{
+  height: 60vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.tabla-container p{
+  height: 55vh;
+  background-color: aliceblue;
+  border-radius: 15px;
+}
+.tabla-container p::after{
+  content: "";
+}
+.input_excel{
+  width: 100%;
+  padding: 5px;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.sitios-menu{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 25px;
+}
+.campo-download{
+
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+.campo-download i{
+  font-size: 2.5rem;
+}
+.campo-download .btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: white;
+}
