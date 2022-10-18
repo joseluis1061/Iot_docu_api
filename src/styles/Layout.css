@@ -1,12 +1,10 @@
 .Layout{
-  display: flex;
   min-height: 100vh;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
 
 .layout-container{
-  width: 30%;
-  max-width: 300px;
   padding: 25px;
   background-color: rgb(27, 51, 87);
 }
@@ -40,7 +38,7 @@
 }
 
 .layout-page{
-  width: 100%;
   background-color: rgb(195, 196, 201);
+  overflow: hidden;
   padding: 25px;
 }

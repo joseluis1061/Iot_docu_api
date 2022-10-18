@@ -15,7 +15,9 @@ const Alarmas = () => {
 
   const fileHandler = async (e) => {
     const file = e.target.files[0];
-    setFileName(file.name);
+
+
+    setFileName(file.name); //AlarmLogs.xlsx
 
     const data = await file.arrayBuffer();
     //const workbook = XLSX.read(data);
@@ -34,6 +36,7 @@ const Alarmas = () => {
     setJsonTable(jsonData)
     postData(jsonData)
   }
+
   return (
     <section className='Alarmas'>
       <h2>Log de Alarmas U2020</h2>
@@ -41,17 +44,36 @@ const Alarmas = () => {
         fileName && <p>{fileName}</p> 
       }
       <div className='alarmas-container'>
-        <input type="file" onChange={(e)=>fileHandler(e)}/>
+        <input className = 'input_excel' type="file" onChange={(e)=>fileHandler(e)}/>
       </div>
 
+      {
+
+      }
       <div className='tabla-container'>
         {
-          jsonTable.length > 0 && <Tabla
-          jsonTable = {jsonTable}
-        />
-        }
-        
+          jsonTable.length > 0?<Tabla
+            jsonTable = {jsonTable}
+          />: <p> </p>
+        }        
       </div>
+
+      <nav className='alarmas-menu'>
+        <div className='alarmas-actualizar'>
+          <button className='btn btn-datos-sitio'>
+            Actualizar Datos de sitio
+          </button>
+          <button className='btn btn-datos-tower'>
+            Actualizar Tower Track
+          </button>
+        </div>
+        <button className='btn'>
+          Subir Log U2020
+        </button>
+        <button className='btn'>
+          Descargar Log
+        </button>
+      </nav>
 
     </section>
   )
